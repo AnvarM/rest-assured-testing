@@ -80,6 +80,18 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>mainProfile</id>
+            <properties>
+                <runSuite>testProject.config.Suites</runSuite>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
 
@@ -104,6 +116,10 @@
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
+
+                    <includes>
+                        <include>${runSuite}</include>
+                    </includes>
 
                 </configuration>
                 <dependencies>
